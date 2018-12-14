@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM debian:8
 
 # install chaperone
 RUN set -x \
@@ -15,6 +15,9 @@ RUN set -x \
       python python-dev python-pip  python-setuptools \
       libssl-dev libxml2-dev libxslt-dev libffi-dev \
       build-essential
+      
+# upgrade pip
+RUN pip install -U setuptools pip
 
 # install scrapyd
 ADD requirements.txt /
